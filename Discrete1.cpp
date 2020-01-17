@@ -10,7 +10,7 @@ int powerrecur(int, int);
 int fibonacci();
 int fibonaccirecur(int);
 
-int num=0,k=0,l=1,n=0,f,a,b;
+int num=0,k=0,l=1,n=0,f,a,b,m,n1,n2,n3;
 float pow=0,number=0;
 int main()
 {
@@ -28,7 +28,7 @@ int main()
 	if(num<0)
 		cout<<"invalid!!!";
 	else
-		f=fact(num);
+		f=factrecur(num);
 	cout<<f;
 	
 	cout<<"Enter NUMBER and its POWER respectively: ";
@@ -40,8 +40,8 @@ int main()
 	
 	
 	cout<<"Enter no. of terms to be printed: ";
-	cin>>n;
-	cout<<fibonacci(num);
+	cin>>m;
+	cout<<"Fibonacci: 0 1 "<<fibonaccirecur(n-2);
 		
 	return 0;
 }
@@ -90,7 +90,7 @@ int factrecur(int n)
 {
 	if(n==0)
 		return (1);
-	return(n*fact(n-1));
+	return(n*factrecur(n-1));
 }
 
 int power(float a,float b)
@@ -131,15 +131,13 @@ int fibonaccirecur(int n)
 		cout<<"Invalid";
 		return 0;
 	}
-	else if(n==1)
+	else
 	{
-		cout<<"0 ";
-		return 0;
+	n3=n1+n2;
+	n1=n2;
+	n2=n3;
+	cout<<n3<<" ";
+	
+	return fibonaccirecur(n-1);
 	}
-	else if(n==2)
-	{
-		cout<<"0 1 ";
-		return 0;
-	}
-	return fibonacci(n);
 }
